@@ -13,7 +13,7 @@ window.onload = function () {
 		document.body.style.fontSize = i + "px";
 	});
 	background.addEventListener("click", function () {
-	var color = background.options[background.selectedIndex].value;
-	document.body.style.backgroundColor = color;
+		var color = background.options[background.selectedIndex].value;
+		document.body.style.backgroundColor = color;
 	});
 }

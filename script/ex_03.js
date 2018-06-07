@@ -8,7 +8,7 @@ window.onload = function () {
 				check = confirm("Etes vous sûr que " + nom +" est votre nom?");
 				if (check === true) {
 					alert("Bonjour " + nom + " !");
-					cadre.innerHTML = nom;
+					cadre.innerHTML = "Bonjour " + nom + " !";
 				}
 				if (check === false)
 					nom = "";

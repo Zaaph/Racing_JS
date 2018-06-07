@@ -6,7 +6,7 @@ window.onload = function () {
 	background = document.body.children[0].children[0].children[2].children[0].children[2];
 	plus.addEventListener("click", function () {
 		i++;
-		document.body.style.fontSize = i + "px"
+		document.body.style.fontSize = i + "px";
 	});
 	minus.addEventListener("click", function () {
 		i--;

@@ -10,4 +10,4 @@ window.onload = function () {
 	cadre.addEventListener("ondragover", function (event) {
 		event.preventDefault();
 	});
-}
+};

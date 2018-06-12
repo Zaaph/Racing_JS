@@ -1,4 +1,6 @@
+/*jslint browser:true*/
 window.onload = function () {
+    /*"use strict";*/
     var result = document.body.children[0].children[0]
         .children[2].children[0].children[0];
     var erase = document.body.children[0].children[0].children[2]
@@ -183,14 +185,13 @@ window.onload = function () {
         if (clicked_equal === 1) {
             display = "";
             clicked_equal = 0;
-            calcul = 0
+            calcul = 0;
         }
         display += ".";
         if (current_nbr !== "") {
             current_nbr += ".";
-        }
-        else if (current_nbr === "") {
-            current_nbr += "0."
+        } else if (current_nbr === "") {
+            current_nbr += "0.";
         }
         result.innerHTML = display;
     });
@@ -210,11 +211,8 @@ window.onload = function () {
     });
     minus.addEventListener("click", function () {
         display += " - ";
-        if (current_nbr !== "" && calcul !== 0) {
+        if (current_nbr !== "" && calcul === 0) {
             calcul += parseFloat(current_nbr, 10);
-        }
-        else if (current_nbr !== "" && calcul === 0 && clicked_minus === 0) {
-            calcul -= parseFloat(current_nbr, 10);
         }
         current_nbr = "";
         result.innerHTML = display;
@@ -229,8 +227,7 @@ window.onload = function () {
         display += " / ";
         if (current_nbr !== "" && calcul !== 0) {
             calcul /= parseFloat(current_nbr, 10);
-        }
-        else if (current_nbr !== "" && calcul === 0) {
+        } else if (current_nbr !== "" && calcul === 0) {
             calcul += parseFloat(current_nbr, 10);
         }
         current_nbr = "";
@@ -246,8 +243,7 @@ window.onload = function () {
         display += " * ";
         if (current_nbr !== "" && calcul !== 0) {
             calcul *= parseFloat(current_nbr, 10);
-        }
-        else if (current_nbr !== "" && calcul === 0) {
+        } else if (current_nbr !== "" && calcul === 0) {
             calcul += parseFloat(current_nbr, 10);
         }
         current_nbr = "";
@@ -263,12 +259,11 @@ window.onload = function () {
         display += " % ";
         if (current_nbr !== "" && calcul !== 0) {
             calcul %= parseFloat(current_nbr, 10);
-        }
-        else if (current_nbr !== "" && calcul === 0) {
+        } else if (current_nbr !== "" && calcul === 0) {
             calcul += parseFloat(current_nbr, 10);
         }
         current_nbr = "";
-        result.innerHTML = current_nbr;
+        result.innerHTML = display;
         clicked_plus = 0;
         clicked_modulo = 1;
         clicked_multiply = 0;
@@ -279,20 +274,15 @@ window.onload = function () {
     equal.addEventListener("click", function () {
         if (current_nbr !== "" && clicked_plus === 1) {
             calcul += parseFloat(current_nbr);
-        }
-        else if (current_nbr !== "" && clicked_minus === 1) {
+        } else if (current_nbr !== "" && clicked_minus === 1) {
             calcul += parseFloat(current_nbr);
-        }
-        else if (current_nbr !== "" && clicked_divide === 1) {
+        } else if (current_nbr !== "" && clicked_divide === 1) {
             calcul /= parseFloat(current_nbr);
-        }
-        else if (current_nbr !== "" && clicked_multiply === 1) {
+        } else if (current_nbr !== "" && clicked_multiply === 1) {
             calcul *= parseFloat(current_nbr);
-        }
-        else if (current_nbr !== "" && clicked_modulo === 1) {
+        } else if (current_nbr !== "" && clicked_modulo === 1) {
             calcul %= parseFloat(current_nbr);
-        }
-        else if (current_nbr !== "") {
+        } else if (current_nbr !== "") {
             calcul = parseFloat(current_nbr);
         }
         display = "";
@@ -307,10 +297,8 @@ window.onload = function () {
         clicked_minus = 0;
     });
     erase.addEventListener("click", function () {
-        if (current_nbr !== "") {
-            current_nbr = current_nbr.substring(0, display.length - 1);
-            display = display.substring(0, display.length - 1);
-        }
+        current_nbr = current_nbr.substring(0, current_nbr.length - 1);
+        display = display.substring(0, display.length - 1);
         result.innerHTML = display;
     });
     clear.addEventListener("click", function () {
